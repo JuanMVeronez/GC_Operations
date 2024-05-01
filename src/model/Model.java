@@ -29,11 +29,6 @@ public class Model {
 		
 		AffineTransform transformacao = new AffineTransform();
 		
-		// Transformação de rotação
-		transformacao.preConcatenate(AffineTransform.getTranslateInstance(-pontoCentral.x, -pontoCentral.y));
-		transformacao.preConcatenate(AffineTransform.getRotateInstance(a));
-		transformacao.preConcatenate(AffineTransform.getTranslateInstance(pontoCentral.x, pontoCentral.y));
-		
 		// Transformação de Escala
 		transformacao.preConcatenate(AffineTransform.getTranslateInstance(-pontoCentral.x, -pontoCentral.y));
 		transformacao.preConcatenate(AffineTransform.getScaleInstance(s.x, s.y));
@@ -42,6 +37,11 @@ public class Model {
 		// Transformação de Cisalhamento
 		transformacao.preConcatenate(AffineTransform.getTranslateInstance(-pontoCentral.x, -pontoCentral.y));
 		transformacao.preConcatenate(AffineTransform.getShearInstance(sh.x, sh.y));
+		transformacao.preConcatenate(AffineTransform.getTranslateInstance(pontoCentral.x, pontoCentral.y));
+
+		// Transformação de rotação
+		transformacao.preConcatenate(AffineTransform.getTranslateInstance(-pontoCentral.x, -pontoCentral.y));
+		transformacao.preConcatenate(AffineTransform.getRotateInstance(a));
 		transformacao.preConcatenate(AffineTransform.getTranslateInstance(pontoCentral.x, pontoCentral.y));
 
 		// Transformação de Translação
